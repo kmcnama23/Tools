@@ -1,22 +1,23 @@
-import win32com.client as win32
+import openpyxl
 
 ad_review_week = input("Which ad week are you reviewing?(one last time) ")	
 destination_path='C:\\Users\\Kyle McNamara\\Desktop\\Work\\Code\\Gatekeeper\\Gatekeeper_Wk'+ad_review_week+'_Working_File.xlsx'
 
-excel = win32.gencache.EnsureDispatch('Excel.Application')
-excel.Visible=False;
+wb = openpyxl.load_workbook(destination_path)
+ws1 = wb['GM Wk'+ad_review_week]
+row_count = ws1.max_row
 
-wb = excel.Workbooks.Open(destination_path);
-ws = wb.Worksheets("GM Wk"+ad_review_week)
+row=2
+while row < row_count:
+		for row,formula in enumerate(list(ws1.columns)[1],1):
+			concat= '=G%d&"|"&N%d&"|"&Q%d' % (row,row,row)
+			formula.value = concat
+			row += 1
+			
 
-lastRow=ws.UsedRange.Rows.Count
+ws1['B1']="History Key"
 
-col = ws.Range("B2:B500")
-for cell in col:
-	cell.Offset(1,1).Value = None
-
-
-
+		
+wb.save(destination_path)
 	
-	
-wb.Close(SaveChanges=True)
+
