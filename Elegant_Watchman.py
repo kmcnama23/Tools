@@ -13,9 +13,10 @@ lastRow=ws.UsedRange.Rows.Count
 
 col = ws.Range("B2:B500")
 for cell in col:
-	cell.Offset(2.2).Value = None
+	cell.Offset(1,1).Value = None
 
-for cell in col:
-	cell.Offset(1,1).Value = "G%s|N%s|Q%s" % (cell.Value,cell.Value,cell.Value)
+
+
+	
 	
 wb.Close(SaveChanges=True)
