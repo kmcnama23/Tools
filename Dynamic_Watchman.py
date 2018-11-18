@@ -10,7 +10,7 @@ from shutil import copyfile
 ad_review_week = input("Which ad week are you reviewing?(again) ")	
 source_path='C:\\Users\\Kyle McNamara\\Desktop\\Work\\Gatekeeper_Information\\Week '+ad_review_week+', 2019\\GM_Wk'+ad_review_week+'_GK_File.xlsx'
 destination_path='C:\\Users\\Kyle McNamara\\Desktop\\Work\\Code\\Gatekeeper\\Gatekeeper_Wk'+ad_review_week+'_Working_File.xlsx'
-hist_sales_path ='C:\\Users\\Kyle McNamara\\Desktop\\Work\\Gatekeeper_Information\\Week 1, 2019\\GM_Wk'+ad_review_week+'_GK_File.xlsx'
+hist_sales_path ='C:\\Users\\Kyle McNamara\\Desktop\\Work\\Gatekeeper_Information\\Week '+ad_review_week+', 2019\\GM_Wk'+ad_review_week+'_GK_File.xlsx'
 ##Loads copy-from source file/selects first worksheet
 wb1 = xl.load_workbook(filename=source_path)
 ws1 = wb1.worksheets[0]
