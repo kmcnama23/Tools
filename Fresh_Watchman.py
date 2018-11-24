@@ -57,32 +57,61 @@ class DataImport(object):
 			#Adds the RowSelected List and nests inside the rangeSelected
 			rangeSelected.append(rowSelected)
 		return rangeSelected
-		
-		
-		
+
 ingest = DataImport(1,1,col_count,row_count,sourcedata)
-digest = DataImport(1,1,col_count,row_count,billdata)
-absorb = DataImport(1,1,col_count,row_count,salesdata)
+print(gkCopy.ingest())		
+		
+class DataSet(object):
+
+	def __init__(ingest,digest,absorb):
+		self.ingest = ingest
+		self.digest = digest
+		self.absorb = absorb
+	
+	def gkTab(ingest):
+		self.ingest = DataImport(1,1,col_count,row_count,sourcedata)
+		
+	def histTab(digest):
+		self.digest = DataImport(1,1,col_count,row_count,billdata)
+		
+	def salesTab(absorb):
+		self.absorb = DataImport(1,1,col_count,row_count,salesdata)
+		
+	def grab(self):
+		return self.ingest
+	
+	def hold(self):
+		return self.digest
+		
+	def squeeze(self):
+		return self.absorb
+		
+
+print(gold)
+
+
+		
+
 
 	
-def paste(firstCol, firstRow, lastCol, lastRow, sheetReceiving,copiedData):
-	numberRow = 0
-	for m in range(firstRow,lastRow+1,1):
-		numberCol = 0
-		for o in range(firstCol,lastCol+1,1):
+#def paste(firstCol, firstRow, lastCol, lastRow, sheetReceiving,copiedData):
+#	numberRow = 0
+#	for m in range(firstRow,lastRow+1,1):
+#		numberCol = 0
+#		for o in range(firstCol,lastCol+1,1):
+#		
+#			sheetReceiving.cell(row = m , column = o).value = copiedData[numberRow][numberCol]
+#			numberCol += 1
+#		numberRow += 1
 		
-			sheetReceiving.cell(row = m , column = o).value = copiedData[numberRow][numberCol]
-			numberCol += 1
-		numberRow += 1
-		
-def input():
-	gkContent = ingest.gkCopy()
-	histContent = digest.gkCopy()
-	salesContent = absorb.gkCopy()
-	gkDestination=paste(1,1,col_count,row_count,gktarget,gkContent)
-	histDestination=paste(1,1,col_count,row_count,histtarget,histContent)
-	salesDestination=paste(1,1,col_count,row_count,salestarget,salesContent)
-input()		
+#def input():
+#	gkContent = ingest.gkCopy()
+#	histContent = digest.gkCopy()
+#	salesContent = absorb.gkCopy()
+#	gkDestination=paste(1,1,col_count,row_count,gktarget,gkContent)
+#	histDestination=paste(1,1,col_count,row_count,histtarget,histContent)
+#	salesDestination=paste(1,1,col_count,row_count,salestarget,salesContent)
+#input()		
 
 wrkngfile.save(destination_path)
 
