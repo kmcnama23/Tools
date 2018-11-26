@@ -50,7 +50,20 @@ Sheets(1).Range("Y2:Y" & LastRow).Formula = "=IF(R2>P2,R2,"""")"
 Sheets(1).Range("Z2:Z" & LastRow).Formula = "=IF(R2>P2,R2,P2)"
 Sheets(1).Range("AA2:AA" & LastRow).Formula = "=IFERROR(VLOOKUP(B2,'GM HISTORY'!A:AP,42,FALSE),"""")"
 Sheets(1).Range("AB2:AB" & LastRow).Formula = "=VLOOKUP(C2,'GM SALES'!A:L,12,FALSE)"
-
+Sheets(1).Range("Q2:Q" & LastRow).Interior.Color = RGB(255,229,204)
+Sheets(1).Range("R2:R" & LastRow).Interior.Color = RGB(229,204,255)
+Sheets(1).Range("S2:S" & LastRow).Interior.Color = RGB(63,63,64)
+Sheets(1).Range("T2:T" & LastRow).Interior.Color = RGB(224,224,224)
+Sheets(1).Range("U2:U" & LastRow).Interior.Color = RGB(255,255,204)
+Sheets(1).Range("V2:V" & LastRow).Interior.Color = RGB(224,224,224)
+Sheets(1).Range("W2:W" & LastRow).Interior.Color = RGB(215,215,230)
+Sheets(1).Range("X2:X" & LastRow).Interior.Color = RGB(204,229,255)
+Sheets(1).Range("Y2:Y" & LastRow).Interior.Color = RGB(204,255,204)
+Sheets(1).Range("Z2:Z" & LastRow).Interior.Color = RGB(255,204,204)
+Sheets(1).Range("AA2:AA" & LastRow).Interior.Color = RGB(192,192,192)
+Sheets(1).Range("AB2:AB" & LastRow).Interior.Color = RGB(192,192,192)
+Sheets(1).Range("S2:S" & LastRow).Font.Color = RGB(255,255,255)
+Sheets(1).Range("S2:S" & LastRow).Font.Bold = True
 End Sub
 
 

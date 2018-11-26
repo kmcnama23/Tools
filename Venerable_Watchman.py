@@ -22,9 +22,10 @@ for worksheet in wb.Sheets:
 	if worksheet.Name == 'GM GateKeeper':
 		worksheet.Move(Before=wb.Sheets("GM History"))
 print("Data import and format complete. Please use Elegant_Watchman.py to complete Gatekeeper build.") 
-		
-		
-wb2.Close(SaveChanges=True)
-xl.Quit()
+
+wb.Close(SaveChanges=True)		
+wb1.Close(SaveChanges=False)		
+
+
 
 
