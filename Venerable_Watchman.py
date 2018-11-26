@@ -19,7 +19,7 @@ ws2.Copy(wb2.Worksheets(2))
 
 wb = xl.Workbooks.Open(Filename=destination_path, ReadOnly='False')
 for worksheet in wb.Sheets:
-	if worksheet.Name == 'GM Wk'+ad_review_week:
+	if worksheet.Name == 'GM GateKeeper':
 		worksheet.Move(Before=wb.Sheets("GM History"))
 print("Data import and format complete. Please use Elegant_Watchman.py to complete Gatekeeper build.") 
 		

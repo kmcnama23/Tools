@@ -268,7 +268,7 @@ for col in RSC137.columns:
 	adjusted_width = (max_length + 2) * 1.1 
 	RSC137.column_dimensions[column].width = adjusted_width			
 
-RSC137.title = "GM Wk"+ad_review_week
+RSC137.title = "GM GateKeeper"
 
 
 	
