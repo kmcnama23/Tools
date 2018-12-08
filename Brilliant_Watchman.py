@@ -6,10 +6,10 @@ import shutil
 ad_review_week = input("Which ad week are you reviewing? ")
 fa_name=input("Please enter your name: ")
 shutil.copy('C:\\Users\\Kyle McNamara\\Desktop\\Work\\Gatekeeper_Information\\Week '+ad_review_week+', 2019\\GM_Wk'+ad_review_week+'_GK_File.xlsx',
-			'C:\\Users\\Kyle McNamara\\Desktop\\Work\\Code\\Gatekeeper\\FileBuild.xlsx')
+			'C:\\Users\\Kyle McNamara\\Desktop\\Work\\Code\\Gatekeeper\\GM_Wk'+ad_review_week+'_Working_File.xlsx')
 			
 print('Beginning billed and sales history data import. Please Standby')	
-destination_path='C:\\Users\\Kyle McNamara\\Desktop\\Work\\Code\\Gatekeeper\\FileBuild.xlsx'
+destination_path='C:\\Users\\Kyle McNamara\\Desktop\\Work\\Code\\Gatekeeper\\GM_Wk'+ad_review_week+'_Working_File.xlsx'
 hist_sales_path ='C:\\Users\\Kyle McNamara\\Desktop\\Work\\Gatekeeper_Information\\Week '+ad_review_week+', 2019\\GM_History_&_Sales.xlsx'
 
 
@@ -36,7 +36,7 @@ for worksheet in wb2.Sheets:
 ws3_return=wb2.Worksheets(1)
 ws3_return.Name="GM GateKeeper"
 
-print("Data import and format complete. Please use Elegant_Watchman.py to complete Gatekeeper build.") 
+print("Data import and format complete.") 
 
 analyst=fa_name
 row = 2
@@ -54,6 +54,8 @@ while True:
 	else:
 		row+=1	
 
+print("FA Data successfully filtered.")
+		
 ws3_return.Columns("Q:Z").Insert()
 
 ws3_return.Cells(1,17).Value="LRS"
@@ -66,11 +68,9 @@ ws3_return.Cells(1,23).Value="Sales"
 ws3_return.Cells(1,24).Value="Billed/Sales"
 ws3_return.Cells(1,25).Value="GK Revised Booking"
 ws3_return.Cells(1,26).Value="GK Booking"
-ws3_return.Cells(1,27).Value="Max Sales"
-ws3_return.Cells(1,28).Value="Max Billed"
+ws3_return.Cells(1,27).Value="Max Billed"
+ws3_return.Cells(1,28).Value="Max Sales"
 ws3_return.Cells(1,29).Value="Comments"
-
-#wb=xl.Workbooks.Open(Filename=destination_path,ReadOnly=0)
 
 salesCode='''
 Sub Insert_Sales()
@@ -107,7 +107,7 @@ Sheets(1).Range("T1").Interior.Color = RGB(41,43,55)
 Sheets(1).Range("U1").Interior.Color = RGB(255,215,0)
 Sheets(1).Range("V1").Interior.Color = RGB(204,204,204)
 Sheets(1).Range("W1").Interior.Color = RGB(102,0,102)
-Sheets(1).Range("X1").Interior.Color = RGB(198,226,255)
+Sheets(1).Range("X1").Interior.Color = RGB(49,134,155)
 Sheets(1).Range("Y1").Interior.Color = RGB(6,85,53)
 Sheets(1).Range("Z1").Interior.Color = RGB(128,0,0)
 
@@ -124,22 +124,38 @@ Sheets(1).Range("Z2:Z" & LastRow).Formula = "=IF(R2>P2,R2,P2)"
 Sheets(1).Range("AA2:AA" & LastRow).Formula = "=IFERROR(VLOOKUP(B2,'GM HISTORY'!A:AP,42,FALSE),"""")"
 Sheets(1).Range("AB2:AB" & LastRow).Formula = "=VLOOKUP(C2,'GM SALES'!A:L,12,FALSE)"
 Sheets(1).Range("Q2:Q" & LastRow).Interior.Color = RGB(255,229,204)
-Sheets(1).Range("R2:R" & LastRow).Interior.Color = RGB(229,204,255)
+Sheets(1).Range("R2:R" & LastRow).Interior.Color = RGB(198,226,255)
 Sheets(1).Range("S2:S" & LastRow).Interior.Color = RGB(63,63,64)
-Sheets(1).Range("T2:T" & LastRow).Interior.Color = RGB(224,224,224)
+Sheets(1).Range("T2:T" & LastRow).Interior.Color = RGB(165,168,187)
 Sheets(1).Range("U2:U" & LastRow).Interior.Color = RGB(255,255,204)
-Sheets(1).Range("V2:V" & LastRow).Interior.Color = RGB(224,224,224)
-Sheets(1).Range("W2:W" & LastRow).Interior.Color = RGB(215,215,230)
-Sheets(1).Range("X2:X" & LastRow).Interior.Color = RGB(204,229,255)
-Sheets(1).Range("Y2:Y" & LastRow).Interior.Color = RGB(204,255,204)
-Sheets(1).Range("Z2:Z" & LastRow).Interior.Color = RGB(255,204,204)
+Sheets(1).Range("V2:V" & LastRow).Interior.Color = RGB(236,236,236)
+Sheets(1).Range("W2:W" & LastRow).Interior.Color = RGB(230,230,250)
+Sheets(1).Range("X2:X" & LastRow).Interior.Color = RGB(208,234,240)
+Sheets(1).Range("Y2:Y" & LastRow).Interior.Color = RGB(196,212,211)
+Sheets(1).Range("Z2:Z" & LastRow).Interior.Color = RGB(255,195,195)
 Sheets(1).Range("AA2:AA" & LastRow).Interior.Color = RGB(192,192,192)
 Sheets(1).Range("AB2:AB" & LastRow).Interior.Color = RGB(192,192,192)
 Sheets(1).Range("AC2:AC" & LastRow).Interior.Color = RGB(192,192,192)
 Sheets(1).Range("S2:S" & LastRow).Font.Color = RGB(255,255,255)
 Sheets(1).Range("S2:S" & LastRow).Font.Bold = True
-End Sub
 
+Sheets(1).Range("AA1:AC1").Font.Color= RGB(0,0,0)
+Sheets(1).Range("AA1:AC1").Interior.Color= RGB(169,169,169)
+Sheets(1).Range("Q1:Z1").Font.Color = RGB(255,255,255)
+Sheets(1).Range("A:AU").HorizontalAlignment = xlCenter
+Sheets(1).Range("Q1:Z1").WrapText = True
+Sheets(1).Range("Q1:Z1").Orientation = 90
+
+Sheets(1).Range("R1:R" & LastRow).Borders(xlEdgeRight).Linestyle = xlContinuous
+Sheets(1).Range("R1:R" & LastRow).Borders(xlEdgeLeft).Linestyle = xlContinuous
+Sheets(1).Range("Z1:Z" & LastRow).Borders(xlEdgeRight).Linestyle = xlContinuous
+Sheets(1).Range("AA1:AA" & LastRow).Borders(xlEdgeRight).Linestyle = xlContinuous
+Sheets(1).Range("AB1:AB" & LastRow).Borders(xlEdgeRight).Linestyle = xlContinuous
+Sheets(1).Range("AC1:AC" & LastRow).Borders(xlEdgeRight).Linestyle = xlContinuous
+
+range("A1").Activate
+
+End Sub
 
 '''
 
@@ -147,7 +163,11 @@ mod = wb2.VBProject.VBComponents.Add(1)
 mod.CodeModule.AddFromString(gkCode)
 xl.Run("Insert_Formula")
 
+print("Formulas inputted Successfully")
+
 xl.ActiveSheet.Columns.AutoFit()
+
+print("Gatekeeper file build complete.")
 
 wb2.SaveAs(destination_path)
 wb2.Close(SaveChanges=True)		
